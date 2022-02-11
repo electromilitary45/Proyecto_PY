@@ -27,7 +27,8 @@ if funciones.logueo() == 1:
         case _:
             print("Digite un numero correto")
             
-
+elif 2 :
+    print('chao')
 
 
 

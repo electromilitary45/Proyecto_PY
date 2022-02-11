@@ -13,19 +13,20 @@ def logueo():
     password1=input("Digite su Password: ")
 
     if(userName1==userName and password1==password):
-        return 1
+        #--Retorna 1 porque es el usuario y contraseña son correctas
+        return 1 
     elif(userName1!=userName and password1!=password):
         clearConsole()
-
         print("Tus credenciales son incorrectas!")
         print("Quieres intentarlo otras vez? y/n")
         reintentar=input("")
         if(reintentar=="y" or reintentar=="Y"):
+                    #--Retorna "logueo" porque acepto volver a reinterntar
             return logueo()
         elif(reintentar=="n" or reintentar=="N"):
-            exit
-            
-        
+            #--Retorna 2 porque es el usuario y contraseña son incorrectas
+            return 2
+
 
 
 
@@ -37,9 +38,11 @@ def clearConsole():
         command = 'cls'
     os.system(command)
 
-#------
 
 
-# def logo(userName1):
-#     if (userName1 *2):
-#         print("hola")
+#--- Salir del programa
+def exit():
+    command = 'exit'
+    if os.name in ('nt', 'dos'):  # If Machine is running on Windows, use cls
+        command = 'exit'
+    os.system(command)
