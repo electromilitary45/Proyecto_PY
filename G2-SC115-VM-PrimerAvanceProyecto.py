@@ -15,7 +15,7 @@ if userIn== user and passwIn== passw:
         phoneNum=int(input("Número de teléfono: "))
         email=input("Correo electrónico: ")
         address=input("Direccion: ")
-        nacionalidad=int(input("Digite si usted es 'Nacional' o 'Extrangero': "))
+        nacionalidad=int(input("Digite si usted es '1.Nacional' o '2.Extrangero': "))
         ageG=int(input("Digite si es 1.Niño, 2.Adulto o 3.Adulto mayor: "))
         
         print("Registro Exitoso para el usuario",nomCom)
