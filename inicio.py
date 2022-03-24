@@ -8,7 +8,7 @@ password = "admin"
 
 #----bienvenida---
 funciones.clearConsole()
-print('Bienvenidos a Aguas Termanles Paraiso Azul \n')
+print('Bienvenidos a Aguas Termales Paraíso Azul \n')
 
 
 #---INICIO DE SESION
@@ -17,7 +17,7 @@ if funciones.logueo() == 1:
     print('1.Registro        2.Productos Naturales       3.Historial\n4.Salir')
     print('----------------------------------------------------')
 
-    numMenu =input("Seleccione un numero para ingresar al menu:")
+    numMenu =input("Seleccione un número para ingresar al menú:")
 
     match numMenu:
         case "1":
@@ -25,10 +25,10 @@ if funciones.logueo() == 1:
         case "4":
             exit()
         case _:
-            print("Digite un numero correto")
+            print("Digite un número correto")
             
 elif 2 :
-    print('chao')
+    print('Chao')
 
 
 
