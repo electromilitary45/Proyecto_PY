@@ -65,7 +65,7 @@ usuario=""
 passw=""
 while usuario !="admin" or passw !="admin":
     print("*********************************")
-    print("* BIENVENDIO AL PROYECTO 🖥️      *")
+    print("* BIENVENIDO AL PROYECTO 🖥️      *")
     print("* A continuacion digite         *")
     print("* Usuario 🆔 y Contraseña ✳️     *")
     print("*********************************")
