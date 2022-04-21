@@ -1,6 +1,5 @@
 #---------------librerias-------------
 import os
-from tkinter import N
 
 #---------------Funciones--------------------------------
 def visitantes():
@@ -22,10 +21,10 @@ def visitantes():
         file.write("Nombre: "+nomCom+"\n"+"Cédula: "+str(id)+"\n"+"Teléfono: "+str(phoneNum)+"\n"+"Correo Electrónico: "+email+"\n"+"Dirección: "+address+"\n"+"Nacionalidad: "+nacionalidad+"\n"+"Edad: "+str(ageG)+"\n"+"------------\n")
         file.close()
     else:
-        nacionalidad="Extrangero"
+        nacionalidad="Extrangero🌎"
         file=open("visitantesExt.txt","a") #"a" escribir sin borrar
         file.write("Nombre: "+nomCom+"\n"+"Cédula: "+str(id)+"\n"+"Teléfono: "+str(phoneNum)+"\n"+"Correo Electrónico: "+email+"\n"+"Dirección: "+address+"\n"+"Nacionalidad: "+nacionalidad+"\n"+"Edad: "+str(ageG)+"\n"+"------------\n")
-    
+        file.close() 
 
 def agendaVisita():
     file=open("agendaDia.txt","a") #"a" escribir sin borrarr
@@ -70,14 +69,35 @@ def productosNaturales():
         "\nEl subtotal es:",subtotal,
         "\nEl descuento es:",descuento,
         "\nEl IVA es: 13%",
-        "\nEl total general es:",totalGeneral
-        )
+        "\nEl total general es:",totalGeneral)
+    
+    
 def verhistorial():
-    print("-------------------------")
+    print("----------------------------")
+    print("* 1. Visitantes Extrangero  *")
+    print("* 2. Visitantes Nacionales  *")
+    print("* 3. Agenda de Visita Día*")
+    print("* 4. Agenda de Visita Noche *")
+    print("-----------------------------")
     
     num=int(input("Ingrese el número de la opción que desea ver: "))
     if num==1:
-        file=open("visitantes.txt","r") #"r" leer para lectura
+        file=open("visitantesNac.txt","r") #"r" leer para lectura
+        contenido=file.read()
+        print(contenido)
+        file.close()
+    elif num ==2:
+        file=open("visitantesExt.txt","r") #"r" leer para lectura
+        contenido=file.read()
+        print(contenido)
+        file.close()
+    elif num ==3:
+        file=open("agendaDia.txt","r") #"r" leer para lectura
+        contenido=file.read()
+        print(contenido)
+        file.close()
+    elif num==4:
+        file=open("agendaNoche.txt","r") #"r" leer para lectura
         contenido=file.read()
         print(contenido)
         file.close()
