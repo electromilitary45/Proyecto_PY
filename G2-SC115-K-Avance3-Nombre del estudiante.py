@@ -1,11 +1,11 @@
 #---------------librerias-------------
 import os
+from tkinter import N
 
 #---------------Funciones--------------------------------
 def visitantes():
     file=open("visitantes.txt","a") #"a" escribir sin borrar
     file.close()
-    
     
     print("----------------\nComplete lo solicitado para registar al visitante 👤:")
     nomCom=input("Nombre completo👤 : ")
@@ -16,10 +16,16 @@ def visitantes():
     nacionalidad=int(input("Digite si usted es '1.Nacional' o '2.Extrangero' 👤: "))
     ageG=int(input("Digite si es 1.Niño, 2.Adulto o 3.Adulto mayor 🧍🏾: "))
     print("Registro exitoso para el usuario",nomCom,"✅")
+    if nacionalidad==1:
+        nacionalidad="Nacional"
+        file=open("visitantesNac.txt","a") #"a" escribir sin borrar
+        file.write(nomCom+"\n"+str(id)+"\n"+str(phoneNum)+"\n"+email+"\n"+address+"\n"+str(nacionalidad)+"\n"+str(ageG)+"\n"+"------------\n")
+        file.close()
+    else:
+        nacionalidad="Extrangero"
+        file=open("visitantesExt.txt","a") #"a" escribir sin borrar
+        file.write(nomCom+"\n"+str(id)+"\n"+str(phoneNum)+"\n"+email+"\n"+address+"\n"+str(nacionalidad)+"\n"+str(ageG)+"\n"+"------------\n")
     
-    file=open("visitantes.txt","a") #"a" escribir sin borrar
-    file.write(nomCom+"\n"+str(id)+"\n"+str(phoneNum)+"\n"+email+"\n"+address+"\n"+str(nacionalidad)+"\n"+str(ageG)+"\n"+"------------\n")
-    file.close()
 
 def agendaVisita():
     print("--------","\nComplete lo solcitado para agendar una visita 📅")
@@ -31,7 +37,6 @@ def agendaVisita():
     print("Agenda exitosa realizada por el encargado",encargado,"✅")
     
 def productosNaturales():
-    
     #--pedir datos--
     descripcionProducto=input("Descripción del producto: ")
     cantidadProducto=int(input("Cantidad de producto: "))
@@ -52,6 +57,8 @@ def productosNaturales():
         "\nEl total general es:",totalGeneral
         )
 def verhistorial():
+    print("-------------------------")
+    
     num=int(input("Ingrese el número de la opción que desea ver: "))
     if num==1:
         file=open("visitantes.txt","r") #"r" leer para lectura
