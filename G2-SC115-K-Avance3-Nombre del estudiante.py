@@ -19,15 +19,20 @@ def visitantes():
     if nacionalidad==1:
         nacionalidad="Nacional"
         file=open("visitantesNac.txt","a") #"a" escribir sin borrar
-        file.write(nomCom+"\n"+str(id)+"\n"+str(phoneNum)+"\n"+email+"\n"+address+"\n"+str(nacionalidad)+"\n"+str(ageG)+"\n"+"------------\n")
+        file.write("Nombre: "+nomCom+"\n"+"Cédula: "+str(id)+"\n"+"Teléfono: "+str(phoneNum)+"\n"+"Correo Electrónico: "+email+"\n"+"Dirección: "+address+"\n"+"Nacionalidad: "+nacionalidad+"\n"+"Edad: "+str(ageG)+"\n"+"------------\n")
         file.close()
     else:
         nacionalidad="Extrangero"
         file=open("visitantesExt.txt","a") #"a" escribir sin borrar
-        file.write(nomCom+"\n"+str(id)+"\n"+str(phoneNum)+"\n"+email+"\n"+address+"\n"+str(nacionalidad)+"\n"+str(ageG)+"\n"+"------------\n")
+        file.write("Nombre: "+nomCom+"\n"+"Cédula: "+str(id)+"\n"+"Teléfono: "+str(phoneNum)+"\n"+"Correo Electrónico: "+email+"\n"+"Dirección: "+address+"\n"+"Nacionalidad: "+nacionalidad+"\n"+"Edad: "+str(ageG)+"\n"+"------------\n")
     
 
 def agendaVisita():
+    file=open("agendaDia.txt","a") #"a" escribir sin borrarr
+    file.close()
+    file=open("agendaNoche.txt","a") #"a" escribir sin borrar
+    file.close()
+
     print("--------","\nComplete lo solcitado para agendar una visita 📅")
     turno=int(input("Turno: 1=Diurno ☀️ || 2=Nocturno 🌙: "))
     horario=int(input("Horario 1=Día ☀️ || 2=Noche 🌙:"))
@@ -35,7 +40,18 @@ def agendaVisita():
     encargado=input("Nombre de encargado de registro 👤: ")
     print("---------")
     print("Agenda exitosa realizada por el encargado",encargado,"✅")
-    
+
+    if turno==1:
+        turno="Diurno ☀️"
+        file=open("agendaDia.txt","a") #"a" escribir sin borrar
+        file.write("Horario: "+str(horario)+"\n"+"Fecha: "+fecha+"\n"+"Encargado: "+encargado+"\n"+"------------\n")
+        file.close()
+
+    else:
+        turno="Nocturno 🌙"
+        file=open("agendaNoche.txt","a") #"a" escribir sin borrar
+        file.write("Horario: "+str(horario)+"\n"+"Fecha: "+fecha+"\n"+"Encargado: "+encargado+"\n"+"------------\n")
+
 def productosNaturales():
     #--pedir datos--
     descripcionProducto=input("Descripción del producto: ")
