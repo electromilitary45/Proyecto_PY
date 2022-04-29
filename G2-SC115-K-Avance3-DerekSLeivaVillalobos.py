@@ -3,9 +3,7 @@ import os
 
 #---------------Funciones--------------------------------
 def visitantes():
-    file=open("visitantes.txt","a") #"a" escribir sin borrar
-    file.close()
-    
+
     print("----------------\nComplete lo solicitado para registar al visitante 👤:")
     nomCom=input("Nombre completo👤 : ")
     id=int(input("Cédula 🆔: "))
@@ -50,35 +48,46 @@ def agendaVisita():
         turno="Nocturno 🌙"
         file=open("agendaNoche.txt","a") #"a" escribir sin borrar
         file.write("Horario: "+str(horario)+"\n"+"Fecha: "+fecha+"\n"+"Encargado: "+encargado+"\n"+"------------\n")
+        file.close()
 
 def productosNaturales():
+    file=open("productosNaturales.txt","a")
+    file.close()
     #--pedir datos--
     descripcionProducto=input("Descripción del producto: ")
     cantidadProducto=int(input("Cantidad de producto: "))
     precioProducto=int(input("Precio del producto: "))
     descuento=int(input("Descuento del producto: "))
     #--calculo
-    subtotal=cantidadProducto*precioProducto
-    descuento2=subtotal-(subtotal*descuento)
+    subtotal=precioProducto*cantidadProducto
+    descuento2=subtotal-(subtotal*(descuento/100))
     totalGeneral=descuento2+(descuento2*0.13)
     #--factura--
-    print("La cantidad de producto es:",cantidadProducto,
-        "\nLa descripcion del producto:",descripcionProducto,
-        "\nEl precio del producto es:",precioProducto,
-        "\n-----FACTURA-----------",
-        "\nEl subtotal es:",subtotal,
-        "\nEl descuento es:",descuento,
-        "\nEl IVA es: 13%",
-        "\nEl total general es:",totalGeneral)
+    print("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*")
+    print("La cantidad de producto es:",cantidadProducto,"🔢",
+        "\nLa descripcion del producto:",descripcionProducto,"🛒",
+        "\nEl precio del producto es:",precioProducto,"💲",
+        "\n--------------FACTURA---------------",
+        "\nEl subtotal es:",subtotal,"⏸",
+        "\nEl descuento es:",descuento,"➖",
+        "\nEl IVA es: 13%","➕",
+        "\nEl total general es:",totalGeneral,"💯")
+    print("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*")
+    
+    file=open("productosNaturales.txt","a")
+    file.write("Producto:  "+descripcionProducto+"\n"+"Cantidad:  "+str(cantidadProducto)+"\n"+"Precio:  "+str(precioProducto)+"\n"+"IVA es: 13%\n"+"Descuento:  "+str(descuento)+
+            "\n"+"Subtotal: "+str(subtotal)+"\n"+"Total general: "+str(totalGeneral)+"\n"+"------------") 
+    file.close()
     
     
 def verhistorial():
-    print("----------------------------")
-    print("* 1. Visitantes Extrangero  *")
-    print("* 2. Visitantes Nacionales  *")
-    print("* 3. Agenda de Visita Día*")
-    print("* 4. Agenda de Visita Noche *")
-    print("-----------------------------")
+    print("------------------------------------")
+    print("*   1. Visitantes Extrangero  🌎   *")
+    print("*   2. Visitantes Nacionales  🦥   *")
+    print("*   3. Agenda de Visita Día   🌞   *")
+    print("*   4. Agenda de Visita Noche 🌑   *")
+    print("*   5. Productos Naturales    🍃   *")
+    print("------------------------------------")
     
     num=int(input("Ingrese el número de la opción que desea ver: "))
     if num==1:
@@ -98,6 +107,11 @@ def verhistorial():
         file.close()
     elif num==4:
         file=open("agendaNoche.txt","r") #"r" leer para lectura
+        contenido=file.read()
+        print(contenido)
+        file.close()
+    elif num==5:
+        file=open("productosNaturales.txt","r")#"r" leer para lectura
         contenido=file.read()
         print(contenido)
         file.close()
@@ -134,8 +148,4 @@ while usuario !="admin" or passw !="admin":
         else:
             print("¡Esta opción no está disponible!")
     else:
-        print("Su usuario no fue encontrado")
-
-
-
-
+        print("Su usuario no fue encontrado😯")
